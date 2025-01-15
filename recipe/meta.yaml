@@ -1,6 +1,5 @@
 {% set version = '1.6.4' %}
 {% set posix = 'm2-' if win else '' %}
-{% set native = 'm2w64-' if win else '' %}
 
 package:
   name: r-protoclust
@@ -13,8 +12,7 @@ source:
   sha256: 4177a045dcfefabb842b11cf7d23c503fdd4d807877e1677f9440ad6ba4c7431
 
 build:
-  merge_build_host: True  # [win]
-  number: 0
+  number: 1
   rpaths:
     - lib/R/lib/
     - lib/
@@ -39,7 +37,6 @@ requirements:
     - r-base
   run:
     - r-base
-    - {{ native }}gcc-libs         # [win]
 
 test:
   commands:
